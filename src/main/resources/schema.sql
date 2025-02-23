@@ -5,7 +5,7 @@ create table posts(
   id bigserial primary key,
   title varchar(255),
   picture varchar(255) not null,
-  text varchar(255) not null,
+  text varchar(255) not null
 );
 
 --delete from posts;
