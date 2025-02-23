@@ -18,14 +18,15 @@ public class JdbcNativePostRepository implements PostRepository{
     @Override
     public List<Post> findAll() {
         return jdbcTemplate.query(
-                "select id, title, picture, text from posts",
+                "select id, title, picture, text from posts order by id desc",
                 (rs, rowNum) -> new Post(
                         rs.getLong("id"),
                         rs.getString("title"),
                         rs.getString("picture"),
                         rs.getString("text")
-                ));
-        //.stream().sorted((p1, p2) -> Long.compare(p2.getId(), p1.getId())).toList()
+                ));/*.stream()
+                .sorted((p1, p2) -> Long.compare(p2.getId(), p1.getId()))
+                .toList();*/
     }
 
     @Override
